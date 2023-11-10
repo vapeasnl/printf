@@ -20,6 +20,7 @@ int _printf(const char *format, ...);
 int _putchar(char c);
 int print_c(va_list val); /*print character*/
 int print_s(va_list val); /*print string*/
+int print_37ASCII(void); /*print the character %*/
 int print_i(va_list args); /*print integer*/
 int print_d(va_list args); /*print decimal*/
 int print_b(va_list val); /*print binary*/
