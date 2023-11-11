@@ -28,7 +28,7 @@ int print_u(va_list args); /*print unsigned integer*/
 int print_o(va_list val); /*print integer as an octal*/
 int print_X(va_list val); /*print integer as an hexadecimal uppcaser*/
 int print_x(va_list val); /*print integer as an hexadecimal lowecaser*/
-int print_x_extra(unsigned long int num); 
+int print_x_extra(unsigned long int num);
 int print_X_extra(unsigned int num);
 int print_S(va_list val);/*print a wide character string*/
 int print_p(va_list val); /*print a pointer*/
