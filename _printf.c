@@ -19,7 +19,7 @@ return (-1);
 Here:
 while (format[i] != '\0')
 {
-j = 4;
+j = 5;
 while (j >= 0)
 {
 if (tab[j].pch[0] == format[i] && tab[j].pch[1] == format[i + 1])
