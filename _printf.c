@@ -1,9 +1,9 @@
 #include "main.h"
 /**
- * _printf - printf
- * @format: --
- * Return: --
- */
+* _printf - printf
+* @format: format string
+* Return: number of characters printed (excluding null byte)
+*/
 int _printf(const char * const format, ...)
 {
 convert tab[] = {
@@ -16,7 +16,6 @@ int i = 0, j, len = 0;
 va_start(args, format);
 if (format == NULL || (format[0] == '%' && format[1] == '\0'))
 return (-1);
-Here:
 while (format[i] != '\0')
 {
 j = 5;
@@ -26,14 +25,18 @@ if (tab[j].pch[0] == format[i] && tab[j].pch[1] == format[i + 1])
 {
 len += tab[j].function(args);
 i = i + 2;
-goto Here;
+break;
 }
 j--;
 }
+if (j < 0)
+{
 _putchar(format[i]);
 len++;
 i++;
 }
+}
 va_end(args);
 return (len);
 }
+
