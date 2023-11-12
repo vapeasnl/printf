@@ -1,45 +1,42 @@
 #include "main.h"
 /**
- * _printf - printf
- * @format: --
- * Return: --
- */
+* _printf - printf
+* @format: format string
+* Return: number of characters printed (excluding null byte)
+*/
 int _printf(const char * const format, ...)
 {
-	unsigned int cnt = 0, i, s_cnt;
-
-	va_list args;
-
-	if (!format || (format[0] == '%' && format[1] == '\0'))
-		return (-1);
-
-	va_start(args, format);
-
-	for (i = 0; format[i] != '\0'; i++)
-	{
-		if (format[i] != '%')
-		{
-			_putchar(format[i]);
-		}
-		else if (format[i + 1] == 'c')
-		{
-			_putchar(va_arg(args, int));
-			i++;
-		}
-		else if (format[i + 1] == 's')
-		{
-			s_cnt = _puts(va_arg(args, char *));
-			i++;
-			cnt += (s_cnt - 1);
-		}
-		else if (format[i + 1] == '%')
-		{
-			_putchar('%');
-		}
-
-		cnt++;
-	}
-
-	va_end(args);
-	return (cnt);
+convert tab[] = {
+{"%s", print_s}, {"%c", print_c},
+{"%%", print_37ASCII},
+{"%i", print_i}, {"%d", print_d}
+};
+va_list args;
+int i = 0, j, len = 0;
+va_start(args, format);
+if (format == NULL || (format[0] == '%' && format[1] == '\0'))
+return (-1);
+while (format[i] != '\0')
+{
+j = 5;
+while (j >= 0)
+{
+if (tab[j].pch[0] == format[i] && tab[j].pch[1] == format[i + 1])
+{
+len += tab[j].function(args);
+i = i + 2;
+break;
 }
+j--;
+}
+if (j < 0)
+{
+_putchar(format[i]);
+len++;
+i++;
+}
+}
+va_end(args);
+return (len);
+}
+
