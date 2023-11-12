@@ -9,7 +9,7 @@ int _printf(const char * const format, ...)
 	int cnt = 0, i;
 	va_list args;
 
-	if (!format || (format[0] == '%' && format[1] == '\0'))
+	if (!format)
 		return (-1);
 	if (format[0] == '%' && format[1] == ' ' && !format[2])
 		return (-1);
