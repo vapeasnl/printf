@@ -35,6 +35,7 @@ int _printf(const char * const format, ...)
 		else if (format[i + 1] == '%')
 		{
 			_putchar('%');
+			i++;
 		}
 
 		cnt++;
