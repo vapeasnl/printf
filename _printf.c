@@ -6,41 +6,44 @@
  */
 int _printf(const char * const format, ...)
 {
-	unsigned int cnt = 0, i, s_cnt;
+	int cnt = 0, i;
 
 	va_list args;
 
-	if (!format || (format[0] == '%' && format[1] == '\0'))
+	if (!format)
 		return (-1);
 
 	va_start(args, format);
-
-	for (i = 0; format[i] != '\0'; i++)
+	for (i = 0; format[i]; i++)
 	{
 		if (format[i] != '%')
 		{
 			_putchar(format[i]);
+			cnt++;
 		}
 		else if (format[i + 1] == 'c')
 		{
 			_putchar(va_arg(args, int));
+			cnt++;
 			i++;
 		}
 		else if (format[i + 1] == 's')
 		{
-			s_cnt = _puts(va_arg(args, char *));
+			cnt += _puts(va_arg(args, char *));
 			i++;
-			cnt += (s_cnt - 1);
 		}
 		else if (format[i + 1] == '%')
 		{
 			_putchar('%');
+			cnt++;
 			i++;
 		}
-
-		cnt++;
+		else
+		{
+			_putchar(format[i]);
+			cnt++;
+		}
 	}
-
 	va_end(args);
 	return (cnt);
 }
