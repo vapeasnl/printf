@@ -21,18 +21,18 @@ int _printf(const char * const format, ...)
 		{
 			_putchar(format[i]);
 		}
-		if (format[i + 1] == 'c')
+		else if (format[i + 1] == 'c')
 		{
 			_putchar(va_arg(args, int));
 			i++;
 		}
-		if (format[i + 1] == 's')
+		else if (format[i + 1] == 's')
 		{
 			s_cnt = _puts(va_arg(args, char *));
 			i++;
 			cnt += (s_cnt - 1);
 		}
-		if (format[i + 1] == '%')
+		else if (format[i + 1] == '%')
 		{
 			_putchar('%');
 		}
