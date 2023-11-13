@@ -6,6 +6,9 @@ int _printf(const char *format, ...)
         {"%s", print_string},
         {"%c", print_char},
         {"%%", print_percent},
+	{ "%d", print_int },
+{ "%i", print_int },
+
     };
 
     va_list args;
