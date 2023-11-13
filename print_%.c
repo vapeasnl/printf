@@ -2,7 +2,7 @@
 
 int print_percent(va_list args)
 {
-    (void)args;  // To avoid unused parameter warning
+    (void)args;
     _putchar(37);
     return (1);
 }
