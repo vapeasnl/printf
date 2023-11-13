@@ -3,7 +3,7 @@
 int print_string(va_list args)
 {
     char *str;
-    int i, len;
+    int len;
 
     str = va_arg(args, char *);
     if (str == NULL)

@@ -7,7 +7,7 @@
 typedef struct format
 {
     char *specifier;
-    int (*printer)();
+    int (*printer)(va_list args);
 } conversion;
 
 int _printf(const char *format, ...);
