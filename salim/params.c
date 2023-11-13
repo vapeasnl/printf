@@ -2,6 +2,7 @@
 /**
  * init_params - clears
  * @params: params struct
+ * @ap: argument pointer
  * Return: void
 */
 void init_params(params_t *params)

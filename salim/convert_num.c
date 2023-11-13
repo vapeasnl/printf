@@ -64,6 +64,7 @@ int bprint(va_list ap, params_t *params)
     unsigned int u = va_arg(ap, unsigned int);
     char *ch = conv(u, 2, CONVERT_UNSIGNED, params);
     
+    
     if (params->hflag && u)
         *--ch = '0';
     params->unsign = 1;

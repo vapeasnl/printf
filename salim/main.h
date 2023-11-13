@@ -55,7 +55,7 @@ int cprint(va_list ap, params_t *params);
 int iprint(va_list ap, params_t *params);
 int sprint(va_list ap, params_t *params);
 int pprint(va_list ap, params_t *params);
-int Sprint(va_list ap, params_t *params);
+int print_s(va_list ap, params_t *params);
 char *conv(long int num , int base, int flags, params_t *params);
 int uprint(va_list ap, params_t *params);
 int aprint(va_list ap, params_t *params);
@@ -81,3 +81,7 @@ char *getprec(char*s, params_t *params, va_list ap);
 int _printf(const char *format, ...);
 
 #endif
+
+
+
+

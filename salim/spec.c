@@ -1,5 +1,25 @@
 #include "main.h"
-
+/**
+ * getmod - finds the mod func
+ * @s: the format string
+ * @params: params struct
+ * Return: if modified was valid
+*/
+int getmod(char *s, params_t *params)
+{
+    int i = 0;
+    switch (*s)
+    {
+    case 'h':
+        i = params->h_mod = 1;
+        break;
+    case 'l':
+        i = params->l_mod = 1;
+    
+        break;
+    }
+    return (i);
+}
 /**
  * getspec - finds the format
  * @s: the format string
@@ -19,7 +39,7 @@ int (*getspec(char *s))(va_list ap, params_t *params)
         {"X", Hprint},
         {"x", hprint},
         {"p", aprint},
-        {"S", Sprint},
+        {"S", print_s},
         {"r", revprint},
         {"R", rotprint},
         {NULL, NULL}
@@ -35,27 +55,6 @@ int (*getspec(char *s))(va_list ap, params_t *params)
         x++;
     }
     return (NULL);
-}
-/**
- * getmod - finds the mod func
- * @s: the format string
- * @params: params struct
- * Return: if modified was valid
-*/
-int getmod(char *s, params_t *params)
-{
-    int i = 0;
-    switch (*s)
-    {
-    case 'h':
-        i = params->h_mod = 1;
-        break;
-    case 'l':
-        i = params->l_mod = 1;
-
-        break;
-    }
-    return (i);
 }
 /**
  * getprintfunc - finds the format 
