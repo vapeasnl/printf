@@ -5,30 +5,31 @@
  * @args: arguments.
  * Return: sum.
  */
-int xprint_extra(unsigned long int args)
+int xprint_extra(va_list args)
 {
-	long int i;
-	long int *arr;
-	long int sum = 0;
-	unsigned long int temp = args;
+	int i;
+	int *arr;
+	int sum = 0;
+	unsigned int num = va_arg(args, unsigned int);
+	unsigned int tmp = num;
 
-	while (args / 16 != 0)
+	while (num / 16 != 0)
 	{
-		args /= 16;
+		num /= 16;
 		sum++;
 	}
 	sum++;
-	arr = malloc(sum * sizeof(long int));
+	arr = malloc(sum * sizeof(int));
 
 	for (i = 0; i < sum; i++)
 	{
-		arr[i] = temp % 16;
-		temp = temp / 16;
+		arr[i] = tmp % 16;
+		tmp /= 16;
 	}
 	for (i = sum - 1; i >= 0; i--)
 	{
 		if (arr[i] > 9)
-			arr[i] = arr[i] + 39;
+			arr[i] = arr[i] + 7;
 		_putchar(arr[i] + '0');
 	}
 	free(arr);
