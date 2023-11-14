@@ -1,37 +1,46 @@
 #include "main.h"
-
 /**
- * bprint - prints unsigned int converted to binary
+ * bprint - prints int converted to binary
  * @b: arg
  * Return: binary num
  */
 int bprint(va_list b)
 {
-	unsigned int num = va_arg(b, unsigned int);
+	unsigned int sum = 0, j, i, l, m, num;
 	int c = 0;
 
-	if (num == 0)
+	m = va_arg(b, unsigned int);
+	if (m)
+	{
+		num = m;
+		while (num)
+		{
+			num /= 2;
+			sum++;
+		}
+		j = 1;
+		i = 1;
+		while (i <= sum - 1)
+		{
+			j *= 2;
+			i++;
+		}
+		i = 1;
+		num = m;
+		while (i <= sum)
+		{
+			l = num / j;
+			_putchar(l + '0');
+			c++;
+			num -= l * j;
+			j /= 2;
+			i++;
+		}
+	}
+	else
 	{
 		_putchar('0');
 		return (1);
 	}
-
-	unsigned int temp = num;
-	int sum = 0;
-	while (temp > 0)
-	{
-		temp /= 2;
-		sum++;
-	}
-
-	unsigned int bitmask = 1U << (sum - 1);
-
-	while (bitmask > 0)
-	{
-		_putchar((num & bitmask) ? '1' : '0');
-		c++;
-		bitmask >>= 1;
-	}
-
 	return (c);
 }
