@@ -14,10 +14,6 @@ int (*prec(const char *next, int position))(va_list)
 		{"d", iprint},
 		{"i", iprint},
 		{"b", bprint},
-		{"x", xprint},
-		{"X", xprint_extra},
-		{"o", oprint},
-		{"u", uprint},
 		{NULL, NULL}
 	};
 
