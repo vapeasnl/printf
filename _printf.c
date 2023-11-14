@@ -2,7 +2,6 @@
 /**
  * _printf - printf input and specifiers
  * @format: input
- *
  * Return: len or error
  */
 int _printf(const char *format, ...)
