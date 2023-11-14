@@ -33,5 +33,13 @@ int iprint(va_list args);
 
 int bprint(va_list b);
 
+int xprint(va_list args);
+
+int xprint_extra(unsigned long int args);
+
+int oprint(va_list args);
+
+int uprint(va_list val);
+
 #endif
 
