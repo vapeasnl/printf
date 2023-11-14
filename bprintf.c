@@ -6,7 +6,7 @@
  */
 int bprint(va_list b)
 {
-	unsigned int sum, j, i, l, m, num;
+	unsigned int sum = 0, j, i, l, m, num;
 	int c = 0;
 
 	m = va_arg(b, unsigned int);
@@ -26,6 +26,7 @@ int bprint(va_list b)
 			i++;
 		}
 		i = 1;
+		num = m;
 		while (i <= sum)
 		{
 			l = num / j;
