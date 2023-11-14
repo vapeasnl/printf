@@ -1,6 +1,6 @@
 #include "main.h"
 /**
- * _printf - printf input and specifiers
+ * _printf - printf input and specifier
  * @format: input
  * Return: len or error
  */
