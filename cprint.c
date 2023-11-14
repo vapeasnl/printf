@@ -12,4 +12,3 @@ int cprint(va_list arg)
 
 	return (1);
 }
-
